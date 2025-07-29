@@ -19,8 +19,9 @@ class Program {
                         new Product("Tablet", 300.00)
                     };
                     
-                    // Sort based on the CompareTo method
-                    productList.Sort();
+                    // Sort based on the CompareProducts method using a delegate
+                    // just using the method name directly 
+                    productList.Sort(CompareProducts);
 
                     foreach (var product in productList) {
                         Console.WriteLine(product);
@@ -36,5 +37,8 @@ class Program {
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         } while (option != 6);
+    }
+    static int CompareProducts(Product p1, Product p2) {
+        return p1.Name.ToUpper().CompareTo(p2.Name.ToUpper());
     }
 }
