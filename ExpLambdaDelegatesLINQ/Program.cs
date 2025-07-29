@@ -18,10 +18,15 @@ class Program {
                         new Product("Smartphone", 800.00),
                         new Product("Tablet", 300.00)
                     };
+
+                    // Using a Comparison delegate to sort products by name
+                    // This is a method that takes two Product objects and returns an int
+                    // indicating their relative order
+                    Comparison<Product> comp = CompareProducts;
                     
                     // Sort based on the CompareProducts method using a delegate
                     // just using the method name directly 
-                    productList.Sort(CompareProducts);
+                    productList.Sort(comp);
 
                     foreach (var product in productList) {
                         Console.WriteLine(product);
