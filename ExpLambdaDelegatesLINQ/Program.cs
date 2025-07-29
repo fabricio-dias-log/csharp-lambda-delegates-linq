@@ -19,14 +19,12 @@ class Program {
                         new Product("Tablet", 300.00)
                     };
                     
-                    Comparison<Product> comp = (p1, p2) => {;
-                        // Using a lambda expression to compare products by name
-                        return p1.Name.ToUpper().CompareTo(p2.Name.ToUpper());
-                    };
-                    
                     // Sort based on the CompareProducts method using a delegate
                     // just using the method name directly 
-                    productList.Sort(comp);
+                    productList.Sort((p1, p2) => {;
+                        // Using a lambda expression to compare products by name
+                        return p1.Name.ToUpper().CompareTo(p2.Name.ToUpper());
+                    });
 
                     foreach (var product in productList) {
                         Console.WriteLine(product);
