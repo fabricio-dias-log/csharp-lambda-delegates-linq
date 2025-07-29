@@ -18,11 +18,11 @@ class Program {
                         new Product("Smartphone", 800.00),
                         new Product("Tablet", 300.00)
                     };
-
-                    // Using a Comparison delegate to sort products by name
-                    // This is a method that takes two Product objects and returns an int
-                    // indicating their relative order
-                    Comparison<Product> comp = CompareProducts;
+                    
+                    Comparison<Product> comp = (p1, p2) => {;
+                        // Using a lambda expression to compare products by name
+                        return p1.Name.ToUpper().CompareTo(p2.Name.ToUpper());
+                    };
                     
                     // Sort based on the CompareProducts method using a delegate
                     // just using the method name directly 
@@ -42,8 +42,5 @@ class Program {
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         } while (option != 6);
-    }
-    static int CompareProducts(Product p1, Product p2) {
-        return p1.Name.ToUpper().CompareTo(p2.Name.ToUpper());
     }
 }
