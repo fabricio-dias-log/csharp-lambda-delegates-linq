@@ -8,6 +8,7 @@ class Program {
         do {
             Console.Clear();
             Console.WriteLine("1. Use Comparison with products");
+            Console.WriteLine("2. Use Delegates");
             Console.WriteLine("6. Exit");
             Console.Write("Choose an option: ");
             option = int.Parse(Console.ReadLine() ?? "0");
@@ -29,6 +30,10 @@ class Program {
                     foreach (var product in productList) {
                         Console.WriteLine(product);
                     }
+                    break;
+                case 2:
+                    Delegates delegates = new Delegates();
+                    delegates.init();
                     break;
                 case 6:
                     Console.WriteLine("Exiting...");
