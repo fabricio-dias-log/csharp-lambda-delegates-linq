@@ -10,6 +10,7 @@ class Program {
             Console.Clear();
             Console.WriteLine("1. Use Comparison with products");
             Console.WriteLine("2. Use Multicast Delegate");    
+            Console.WriteLine("3. Use Predicate");    
             Console.WriteLine("6. Exit");
             Console.Write("Choose an option: ");
             option = int.Parse(Console.ReadLine() ?? "0");
@@ -41,6 +42,19 @@ class Program {
                     
                     op.Invoke(a , b); // ou op(a,b);
                     break;
+                case 3:
+                    List<Product> products = new List<Product> {
+                        new Product("TV", 900.00),
+                        new Product("Mouse", 50.00),
+                        new Product("Tablet", 350.50),
+                        new Product("HD Case", 80.90)
+                    };
+                    products.RemoveAll(ProductTest);
+                    
+                    foreach (var product in products) {
+                        Console.WriteLine(product);
+                    }
+                    break;
                 case 6:
                     Console.WriteLine("Exiting...");
                     break;
@@ -51,5 +65,9 @@ class Program {
             Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         } while (option != 6);
+    }
+    
+    public static bool ProductTest(Product p) {
+        return p.Price >= 100.0;
     }
 }
