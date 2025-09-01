@@ -10,11 +10,12 @@ class Program {
         do {
             Console.Clear();
             Console.WriteLine("1. Use Comparison with products");
-            Console.WriteLine("2. Use Multicast Delegate");    
-            Console.WriteLine("3. Use Predicate Delegate");    
-            Console.WriteLine("4. Use Action Delegate");    
-            Console.WriteLine("5. Use Func Delegate");    
-            Console.WriteLine("6. Use LINQ");    
+            Console.WriteLine("2. Use Delegate");
+            Console.WriteLine("3. Use Multicast Delegate");    
+            Console.WriteLine("4. Use Predicate Delegate");    
+            Console.WriteLine("5. Use Action Delegate");    
+            Console.WriteLine("6. Use Func Delegate");    
+            Console.WriteLine("7. Use LINQ");    
             Console.WriteLine("0. Exit");
             Console.Write("Choose an option: ");
             option = int.Parse(Console.ReadLine() ?? "0");
@@ -38,6 +39,10 @@ class Program {
                     }
                     break;
                 case 2:
+                    Delegates delegates = new Delegates();
+                    delegates.init();
+                    break;
+                case 3:
                     double a = 12;
                     double b = 10;
                     
@@ -46,7 +51,7 @@ class Program {
                     
                     op.Invoke(a , b); // ou op(a,b);
                     break;
-                case 3:
+                case 4:
                     List<Product> products = new List<Product> {
                         new Product("TV", 900.00),
                         new Product("Mouse", 50.00),
@@ -59,7 +64,7 @@ class Program {
                         Console.WriteLine(product);
                     }
                     break;
-                case 4:
+                case 5:
                     List<Product> listP = new List<Product> {
                         new Product("TV", 900.00),
                         new Product("Mouse", 50.00),
@@ -74,7 +79,7 @@ class Program {
                         Console.WriteLine(product);
                     }
                     break;
-                case 5:
+                case 6:
                     List<Product> listF = new List<Product> {
                         new Product("Tv", 900.00),
                         new Product("Mouse", 50.00),
@@ -90,7 +95,7 @@ class Program {
                         Console.WriteLine(s);
                     }
                     break;
-                case 6:
+                case 7:
                     int [] numbers = new int[] {2, 3, 4, 5};
                     
                     var resultLinq = numbers
