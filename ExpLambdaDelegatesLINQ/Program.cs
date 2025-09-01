@@ -1,13 +1,15 @@
 ﻿using ExpLambdaDelegatesLINQ.Entities;
+using ExpLambdaDelegatesLINQ.Services;
 
 namespace ExpLambdaDelegatesLINQ;
-
+delegate void BinaryNumericOperation(double n1, double n2);
 class Program {
     static void Main(string[] args) {
         int option;
         do {
             Console.Clear();
             Console.WriteLine("1. Use Comparison with products");
+            Console.WriteLine("2. Use Multicast Delegate");    
             Console.WriteLine("6. Exit");
             Console.Write("Choose an option: ");
             option = int.Parse(Console.ReadLine() ?? "0");
@@ -29,6 +31,15 @@ class Program {
                     foreach (var product in productList) {
                         Console.WriteLine(product);
                     }
+                    break;
+                case 2:
+                    double a = 12;
+                    double b = 10;
+                    
+                    BinaryNumericOperation op = CalculationService.ShowSum;
+                    op += CalculationService.ShowMax;
+                    
+                    op.Invoke(a , b); // ou op(a,b);
                     break;
                 case 6:
                     Console.WriteLine("Exiting...");
