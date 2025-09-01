@@ -1,5 +1,6 @@
 ﻿using ExpLambdaDelegatesLINQ.Entities;
 using ExpLambdaDelegatesLINQ.Services;
+using System.Linq;
 
 namespace ExpLambdaDelegatesLINQ;
 delegate void BinaryNumericOperation(double n1, double n2);
@@ -12,6 +13,7 @@ class Program {
             Console.WriteLine("2. Use Multicast Delegate");    
             Console.WriteLine("3. Use Predicate Delegate");    
             Console.WriteLine("4. Use Action Delegate");    
+            Console.WriteLine("5. Use Func Delegate");    
             Console.WriteLine("6. Exit");
             Console.Write("Choose an option: ");
             option = int.Parse(Console.ReadLine() ?? "0");
@@ -71,6 +73,22 @@ class Program {
                         Console.WriteLine(product);
                     }
                     break;
+                case 5:
+                    List<Product> listF = new List<Product> {
+                        new Product("Tv", 900.00),
+                        new Product("Mouse", 50.00),
+                        new Product("Tablet", 350.50),
+                        new Product("Hd case", 80.90)
+                    };
+                    
+                    Func<Product, string> func = p => p.Name.ToUpper();
+
+                    List<string> result = listF.Select(func).ToList();
+
+                    foreach (var s in result) {
+                        Console.WriteLine(s);
+                    }
+                    break;
                 case 6:
                     Console.WriteLine("Exiting...");
                     break;
@@ -90,4 +108,10 @@ class Program {
     public static void UpdatePrice(Product p) {
         p.Price += p.Price * 0.1;
     }
+    
+    public static string NameUpper(Product p) {
+        return p.Name.ToUpper();
+    }
+    
+    
 }
