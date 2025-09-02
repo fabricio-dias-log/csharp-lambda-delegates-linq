@@ -15,7 +15,8 @@ class Program {
             Console.WriteLine("4. Use Predicate Delegate");    
             Console.WriteLine("5. Use Action Delegate");    
             Console.WriteLine("6. Use Func Delegate");    
-            Console.WriteLine("7. Use LINQ");    
+            Console.WriteLine("7. Use LINQ");
+            Console.WriteLine("8. Demo LINQ");
             Console.WriteLine("0. Exit");
             Console.Write("Choose an option: ");
             option = int.Parse(Console.ReadLine() ?? "0");
@@ -105,6 +106,10 @@ class Program {
                     foreach (int n in resultLinq) {
                         Console.WriteLine(n);
                     }
+                    break;
+                case 8:
+                    Linq demoLinq = new Linq();
+                    demoLinq.init();
                     break;
                 case 0:
                     Console.WriteLine("Exiting...");
