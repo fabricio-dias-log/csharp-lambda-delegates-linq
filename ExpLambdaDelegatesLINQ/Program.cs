@@ -17,6 +17,7 @@ class Program {
             Console.WriteLine("6. Use Func Delegate");    
             Console.WriteLine("7. Use LINQ");
             Console.WriteLine("8. Demo LINQ");
+            Console.WriteLine("9. Demo LINQ like SQL");
             Console.WriteLine("0. Exit");
             Console.Write("Choose an option: ");
             option = int.Parse(Console.ReadLine() ?? "0");
@@ -110,6 +111,10 @@ class Program {
                 case 8:
                     Linq demoLinq = new Linq();
                     demoLinq.init();
+                    break;
+                case 9:
+                    LinqLikeSql demoLinqSql = new LinqLikeSql();
+                    demoLinqSql.init();
                     break;
                 case 0:
                     Console.WriteLine("Exiting...");
